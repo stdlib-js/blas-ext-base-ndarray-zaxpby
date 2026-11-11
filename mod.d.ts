@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,18 +16,32 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { complex128ndarray, typedndarray } from '@stdlib/types/ndarray';
+import { Complex128 } from '@stdlib/types/complex';
 
 /**
-* Multiply a one-dimensional double-precision complex floating-point ndarray by a scalar constant and add the result to a second one-dimensional double-precision complex floating-point ndarray multiplied by a scalar constant.
+* Multiplies a one-dimensional double-precision complex floating-point ndarray by a scalar constant and adds the result to a second one-dimensional double-precision complex floating-point ndarray multiplied by a scalar constant.
 *
-* @module @stdlib/blas-ext-base-ndarray-zaxpby
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a one-dimensional output ndarray.
+*     -   a zero-dimensional ndarray containing the constant by which to multiply the input ndarray.
+*     -   a zero-dimensional ndarray containing the constant by which to multiply the output ndarray.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns output ndarray
 *
 * @example
 * var Complex128Vector = require( '@stdlib/ndarray-vector-complex128' );
 * var Complex128 = require( '@stdlib/complex-float64-ctor' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var zaxpby = require( '@stdlib/blas-ext-base-ndarray-zaxpby' );
 *
 * var x = new Complex128Vector( [ 1.0, 2.0, 3.0, -1.0, 0.0, 1.0 ] );
 * var y = new Complex128Vector( [ 2.0, 1.0, -1.0, 3.0, 4.0, 0.0 ] );
@@ -43,12 +57,9 @@
 * var out = zaxpby( [ x, y, alpha, beta ] );
 * // returns <ndarray>[ <Complex128>[ 3.0, 4.0 ], <Complex128>[ 9.0, 5.0 ], <Complex128>[ 3.0, -2.0 ] ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function zaxpby( arrays: [ complex128ndarray, complex128ndarray, typedndarray<Complex128>, typedndarray<Complex128> ] ): complex128ndarray;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = zaxpby;
